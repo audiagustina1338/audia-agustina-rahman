@@ -1,0 +1,353 @@
+/* ==========================================================================
+   STYLE.CSS - NETFLIX INSPIRED THEME & STYLING
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --netflix-black: #141414;
+  --netflix-dark: #181818;
+  --netflix-card: #202020;
+  --netflix-red: #E50914;
+  --netflix-red-hover: #b80710;
+  --netflix-gray: #808080;
+  --netflix-light-gray: #b3b3b3;
+  --netflix-white: #ffffff;
+  --netflix-green: #46d369;
+  --nav-height: 68px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--netflix-black);
+  color: var(--netflix-white);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.font-bebas {
+  font-family: 'Bebas Neue', 'Inter', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Custom Scrollbar ala Netflix */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--netflix-black);
+}
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+/* Netflix Sticky Header Bar */
+.netflix-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  z-index: 50;
+  transition: background-color 0.4s ease;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+}
+
+.netflix-navbar.scrolled {
+  background-color: #141414 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* Nav links */
+.netflix-nav-link {
+  color: #e5e5e5;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+.netflix-nav-link:hover,
+.netflix-nav-link.active {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Billboard Hero Section */
+.hero-billboard {
+  position: relative;
+  height: 85vh;
+  min-height: 550px;
+  max-height: 800px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(77deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 85%),
+              linear-gradient(180deg, transparent 65%, #141414 100%);
+  z-index: 2;
+}
+
+/* Netflix CTA Buttons */
+.btn-netflix-play {
+  background-color: #ffffff;
+  color: #000000;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  border: none;
+}
+.btn-netflix-play:hover {
+  background-color: rgba(255, 255, 255, 0.75);
+  transform: scale(1.03);
+}
+
+.btn-netflix-info {
+  background-color: rgba(109, 109, 110, 0.7);
+  color: #ffffff;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  border: none;
+  backdrop-filter: blur(4px);
+}
+.btn-netflix-info:hover {
+  background-color: rgba(109, 109, 110, 0.4);
+  transform: scale(1.03);
+}
+
+/* Netflix Horizontal Card Carousel Rows */
+.row-slider {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 0;
+  scrollbar-width: none;
+}
+.row-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* Netflix Card Hover Zoom */
+.netflix-card {
+  position: relative;
+  flex: 0 0 auto;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: var(--netflix-card);
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s ease, z-index 0.3s ease;
+  cursor: pointer;
+}
+.netflix-card:hover {
+  transform: scale(1.08) translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(229, 9, 20, 0.3);
+  z-index: 30;
+}
+.netflix-card .card-img {
+  transition: transform 0.3s ease;
+}
+
+/* Netflix Badge */
+.netflix-n-badge {
+  color: var(--netflix-red);
+  font-weight: 900;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Top 10 Number Badges */
+.top10-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 130px;
+  line-height: 0.8;
+  color: #000000;
+  -webkit-text-stroke: 4px #595959;
+  font-weight: 900;
+  user-select: none;
+  position: absolute;
+  bottom: -15px;
+  left: -20px;
+  z-index: 5;
+  transition: -webkit-text-stroke 0.2s ease;
+}
+.netflix-card:hover .top10-number {
+  -webkit-text-stroke: 4px var(--netflix-red);
+}
+
+/* Netflix Video Player */
+.netflix-player-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #000000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+}
+
+.netflix-player-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.85) 60%, rgba(0, 0, 0, 0.98) 100%);
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 20;
+}
+.netflix-player-wrapper:hover .netflix-player-controls,
+.netflix-player-wrapper.paused .netflix-player-controls {
+  opacity: 1;
+}
+
+.netflix-progress-container {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  transition: height 0.15s ease;
+}
+.netflix-progress-container:hover {
+  height: 8px;
+}
+
+.netflix-progress-bar {
+  height: 100%;
+  background-color: var(--netflix-red);
+  width: 0%;
+  border-radius: 2px;
+  position: relative;
+}
+.netflix-progress-bar::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%) scale(0);
+  width: 14px;
+  height: 14px;
+  background-color: var(--netflix-red);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(229, 9, 20, 0.8);
+  transition: transform 0.15s ease;
+}
+.netflix-progress-container:hover .netflix-progress-bar::after {
+  transform: translateY(-50%) scale(1);
+}
+
+/* Netflix Modal Dialog */
+.netflix-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.25s ease;
+}
+
+.netflix-modal-content {
+  background-color: #181818;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 850px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95);
+  position: relative;
+}
+
+/* Lightbox */
+.netflix-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 110;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* Red Progress Pill */
+.red-progress {
+  height: 3px;
+  background: var(--netflix-red);
+  border-radius: 2px;
+}
+
+/* Toast */
+.netflix-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(30, 30, 30, 0.95);
+  border-left: 4px solid var(--netflix-red);
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translate(-50%, 20px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* Utility fallbacks */
+.hidden { display: none !important; }
+.flex { display: flex !important; }
+.grid { display: grid !important; }
+.block { display: block !important; }
