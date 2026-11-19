@@ -1,38 +1,173 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Beranda | Website Saya</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* ===== Tema RGB ===== */
+:root{
+  --r: rgb(255, 40, 80);
+  --g: rgb(40, 255, 130);
+  --b: rgb(50, 120, 255);
+  --bg: rgb(10, 10, 25);
+  --card: rgba(255, 255, 255, 0.07);
+  --text: rgb(240, 242, 255);
+  --muted: rgb(170, 175, 205);
+}
 
-<header>
-  <nav>
-    <div class="logo">NamaKamu</div>
-    <ul>
-      <li><a href="index.html" class="active">Beranda</a></li>
-      <li><a href="biodata.html">Biodata</a></li>
-      <li><a href="galeri.html">Galeri</a></li>
-      <li><a href="video.html">Video</a></li>
-      <li><a href="tugas1.html">Tugas 1</a></li>
-      <li><a href="tugas2.html">Tugas 2</a></li>
-      <li><a href="tugas3.html">Tugas 3</a></li>
-      <li><a href="tugas-akhir.html">Tugas Akhir</a></li>
-    </ul>
-  </nav>
-</header>
+*{box-sizing:border-box;margin:0;padding:0}
 
-<main>
-  <section class="hero">
-    <h1>Halo, saya <span>Nama Kamu</span></h1>
-    <p>Selamat datang di website saya. Di sini kamu bisa melihat biodata, galeri, video, dan tugas-tugas saya.</p>
-    <a class="btn" href="biodata.html">Lihat Biodata</a>
-  </section>
-</main>
+body{
+  font-family:"Segoe UI",Arial,sans-serif;
+  color:var(--text);
+  line-height:1.6;
+  background:var(--bg);
+  min-height:100vh;
+  position:relative;
+}
 
-<footer>&copy; 2026 NamaKamu. Dibuat dengan HTML &amp; CSS.</footer>
+/* Cahaya RGB yang bergerak di latar belakang */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255,40,80,.35), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(40,255,130,.30), transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(50,120,255,.38), transparent 45%);
+  background-size:200% 200%;
+  animation:geser 14s ease-in-out infinite alternate;
+}
+@keyframes geser{
+  0%{background-position:0% 0%}
+  100%{background-position:100% 100%}
+}
 
-</body>
-</html>
+/* Teks pelangi RGB */
+.logo, h1, .hero span{
+  background:linear-gradient(90deg, rgb(255,40,80), rgb(40,255,130), rgb(50,120,255), rgb(255,40,80));
+  background-size:300% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+  animation:pelangi 6s linear infinite;
+}
+@keyframes pelangi{
+  0%{background-position:0% 0}
+  100%{background-position:300% 0}
+}
+
+/* ===== Header & Menu ===== */
+header{
+  background:rgba(10,10,25,.75);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  position:sticky;
+  top:0;
+  z-index:10;
+  border-bottom:2px solid transparent;
+  border-image:linear-gradient(90deg, rgb(255,40,80), rgb(40,255,130), rgb(50,120,255)) 1;
+}
+nav{
+  max-width:1000px;margin:auto;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  padding:12px 20px;
+}
+.logo{font-weight:800;font-size:1.3rem;letter-spacing:1px}
+nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+nav a{
+  color:var(--text);text-decoration:none;
+  padding:7px 14px;border-radius:999px;font-size:.92rem;
+  transition:all .25s ease;
+}
+nav a:hover{
+  background:rgba(255,255,255,.12);
+  box-shadow:0 0 12px rgba(50,120,255,.8);
+  transform:translateY(-2px);
+}
+nav a.active{
+  background:linear-gradient(90deg, rgb(255,40,80), rgb(50,120,255));
+  color:rgb(255,255,255);
+  box-shadow:0 0 14px rgba(255,40,80,.7);
+}
+
+/* ===== Konten ===== */
+main{max-width:1000px;margin:auto;padding:40px 20px;min-height:70vh}
+h1{font-size:2.2rem;margin-bottom:16px;font-weight:800}
+h2{margin:20px 0 8px;color:rgb(40,255,130)}
+p{color:var(--muted);margin-bottom:12px}
+code{background:rgba(255,255,255,.1);padding:2px 6px;border-radius:6px;color:rgb(255,220,120)}
+
+/* Hero beranda */
+.hero{text-align:center;padding:90px 20px}
+.hero h1{font-size:3rem;color:var(--text);-webkit-text-fill-color:var(--text);background:none;animation:none}
+.hero span{font-size:3.2rem;font-weight:800}
+
+/* Tombol */
+.btn{
+  display:inline-block;margin-top:18px;padding:12px 30px;
+  background:linear-gradient(90deg, rgb(255,40,80), rgb(40,255,130), rgb(50,120,255));
+  background-size:200% 100%;
+  color:rgb(10,10,25);font-weight:700;text-decoration:none;
+  border-radius:999px;
+  box-shadow:0 0 18px rgba(50,120,255,.6);
+  transition:all .3s ease;
+  animation:pelangi 5s linear infinite;
+}
+.btn:hover{transform:scale(1.07);box-shadow:0 0 28px rgba(40,255,130,.9)}
+
+/* Kartu dengan garis tepi RGB bercahaya */
+.card{
+  position:relative;
+  background:var(--card);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  padding:26px;border-radius:16px;margin-bottom:22px;
+  border:2px solid transparent;
+  background-clip:padding-box;
+}
+.card::before{
+  content:"";position:absolute;inset:-2px;z-index:-1;border-radius:18px;
+  background:linear-gradient(135deg, rgb(255,40,80), rgb(40,255,130), rgb(50,120,255));
+  filter:blur(6px);opacity:.75;
+}
+
+/* Tabel biodata */
+table{width:100%;border-collapse:collapse}
+td{padding:12px;border-bottom:1px solid rgba(255,255,255,.15)}
+td:first-child{width:35%;font-weight:700;color:rgb(50,170,255)}
+tr:hover td{background:rgba(255,255,255,.06)}
+
+/* ===== Galeri ===== */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+.grid .foto{
+  height:170px;border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;color:rgb(255,255,255);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.grid .foto:nth-child(3n+1){background:linear-gradient(135deg, rgb(255,40,80), rgb(255,140,60))}
+.grid .foto:nth-child(3n+2){background:linear-gradient(135deg, rgb(40,255,130), rgb(30,180,200))}
+.grid .foto:nth-child(3n+3){background:linear-gradient(135deg, rgb(50,120,255), rgb(170,60,255))}
+.grid img{width:100%;height:170px;object-fit:cover;border-radius:16px;transition:transform .3s ease, box-shadow .3s ease}
+.grid .foto:hover, .grid img:hover{transform:scale(1.06) rotate(-1deg);box-shadow:0 0 22px rgba(50,120,255,.9)}
+
+/* ===== Video ===== */
+.video{
+  position:relative;padding-bottom:56.25%;height:0;
+  border-radius:16px;overflow:hidden;
+  box-shadow:0 0 28px rgba(255,40,80,.5), 0 0 48px rgba(50,120,255,.4);
+}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* ===== Footer ===== */
+footer{
+  text-align:center;padding:22px;color:var(--muted);
+  background:rgba(10,10,25,.75);
+  border-top:2px solid transparent;
+  border-image:linear-gradient(90deg, rgb(50,120,255), rgb(40,255,130), rgb(255,40,80)) 1;
+}
+
+/* ===== HP ===== */
+@media(max-width:600px){
+  .hero h1{font-size:2rem}
+  .hero span{font-size:2.2rem}
+  nav{justify-content:center}
+  nav ul{justify-content:center}
+}
