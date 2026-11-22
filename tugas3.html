@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tugas 3 | Audia Agustina Rahman</title>
+<style>
+:root{--bg:rgb(10,10,25);--text:rgb(240,242,255);--muted:rgb(170,175,205);--ungu:rgb(94,53,140);color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Segoe UI",Arial,sans-serif;color:var(--text);line-height:1.6;background:var(--bg);min-height:100vh}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 15% 20%,rgba(255,40,80,.35),transparent 40%),radial-gradient(circle at 85% 30%,rgba(40,255,130,.30),transparent 40%),radial-gradient(circle at 50% 90%,rgba(50,120,255,.38),transparent 45%);background-size:200% 200%;animation:geser 14s ease-in-out infinite alternate}
+@keyframes geser{to{background-position:100% 100%}}
+.logo,h1{background:linear-gradient(90deg,rgb(255,40,80),rgb(40,255,130),rgb(50,120,255),rgb(255,40,80));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:pelangi 6s linear infinite}
+@keyframes pelangi{to{background-position:300% 0}}
+
+/* Header */
+header{background:rgba(10,10,25,.75);backdrop-filter:blur(12px);position:sticky;top:0;z-index:10;border-bottom:2px solid transparent;border-image:linear-gradient(90deg,rgb(255,40,80),rgb(40,255,130),rgb(50,120,255)) 1}
+nav{max-width:1100px;margin:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:12px 20px}
+.logo{font-weight:800;font-size:1.3rem;letter-spacing:1px}
+nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+nav a{color:var(--text);text-decoration:none;padding:7px 14px;border-radius:999px;font-size:.92rem}
+nav a:hover,nav a.active{background:linear-gradient(90deg,rgb(255,40,80),rgb(50,120,255));color:white}
+
+/* Isi */
+main{max-width:1100px;margin:auto;padding:40px 20px;min-height:75vh}
+h1{font-size:2.4rem;margin-bottom:18px;line-height:1.2}
+h2{font-size:1.25rem;margin-bottom:8px}
+p{color:var(--muted);margin-bottom:16px}
+.card{background:rgba(20,20,40,.9);padding:24px;border-radius:16px;margin-bottom:22px;box-shadow:0 0 18px rgba(50,120,255,.18);border:1px solid rgba(255,255,255,.12)}
+.nav-card{text-align:center}
+.judul{padding-bottom:12px;margin-bottom:16px;border-bottom:1px solid rgba(255,255,255,.15)}
+
+/* Tombol */
+.tombol{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.btn{display:inline-block;padding:12px 24px;background:linear-gradient(90deg,rgb(255,40,80),rgb(40,255,130),rgb(50,120,255));color:#080818;font-weight:700;font-size:1rem;text-decoration:none;border-radius:999px;transition:.2s}
+.btn:hover{filter:brightness(1.1);transform:scale(1.04)}
+.btn.sekunder{background:rgba(255,255,255,.1);color:var(--text);border:1px solid rgba(255,255,255,.22)}
+.btn.home{background:rgba(120,130,150,.35);color:var(--text)}
+
+/* Looker Studio */
+.frame-wrap{width:100%;height:75vh;min-height:520px;overflow:hidden;border-radius:12px;background:#fff}
+iframe{width:100%;height:100%;border:0}
+
+/* Tabel Google Sheets */
+.tabel-wrap{max-height:480px;overflow:auto;border-radius:12px;background:#fff}
+table{width:100%;border-collapse:collapse;color:#1f2230;font-size:.92rem;min-width:600px}
+thead th{position:sticky;top:0;background:var(--ungu);color:#fff;text-align:left;padding:12px 14px;white-space:nowrap}
+tbody td{padding:11px 14px;white-space:nowrap;border-bottom:1px solid #e8eaf3}
+tbody tr:nth-child(even){background:#f6f7fb}
+tbody tr:hover{background:#ece6f7}
+.status{margin:12px 0 0;font-size:.9rem}
+
+footer{text-align:center;padding:22px;color:var(--muted);background:rgba(10,10,25,.75);border-top:2px solid transparent;border-image:linear-gradient(90deg,rgb(50,120,255),rgb(40,255,130),rgb(255,40,80)) 1}
+@media(max-width:600px){nav,nav ul{justify-content:center}h1{font-size:2rem}main{padding:28px 14px}.frame-wrap{height:70vh;min-height:440px}.btn{width:100%;text-align:center}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<header><nav>
+<div class="logo">Audia</div>
+<ul>
+<li><a href="index.html">Beranda</a></li>
+<li><a href="biodata.html">Biodata</a></li>
+<li><a href="galeri.html">Galeri</a></li>
+<li><a href="video.html">Video</a></li>
+<li><a href="tugas1.html">Tugas 1</a></li>
+<li><a href="tugas2.html">Tugas 2</a></li>
+<li><a href="tugas3.html" class="active">Tugas 3</a></li>
+<li><a href="tugas4.html">Tugas 4</a></li>
+<li><a href="tugas-akhir.html">Tugas Akhir</a></li>
+<li><a href="data.html">Data</a></li>
+</ul>
+</nav></header>
+
+<main>
+<h1>Dokumentasi Tugas 3</h1>
+
+<!-- Tautan navigasi (semua membuka tab baru) -->
+<div class="card nav-card">
+<h2>Tautan Navigasi Tugas 3</h2>
+<p>Anda dapat mengisi formulir pendataan atau membuka laporan secara penuh di tab baru.</p>
+<div class="tombol">
+<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdUdITfPuvtLvTMoCn3Jbv_GUD1CLWwYk4hhRGP3ciqw21A-g/viewform?usp=header" target="_blank" rel="noopener">📝 Isi Google Form (Tugas 3)</a>
+<a class="btn sekunder" href="https://datastudio.google.com/reporting/4a3295ef-cf89-428a-872d-2a93bc3d2d1f" target="_blank" rel="noopener">📊 Buka Dashboard Looker Studio</a>
+<a class="btn sekunder" href="https://docs.google.com/spreadsheets/d/1Xte1ij5QahCLG4oYUOmLwzuVCR1SOwUklB0EbxsTAL8/edit?usp=sharing" target="_blank" rel="noopener">📄 Buka Google Sheets</a>
+<a class="btn home" href="index.html">🏠 Kembali ke Home</a>
+</div>
+</div>
+
+<!-- Tampilan 1: Looker Studio -->
+<section class="card">
+<h2 class="judul">📊 Visualisasi Interaktif Looker Studio</h2>
+<div class="frame-wrap">
+<iframe src="https://datastudio.google.com/embed/reporting/4a3295ef-cf89-428a-872d-2a93bc3d2d1f/page/QX6DG" title="Dashboard Looker Studio Tugas 3" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+</div>
+</section>
+
+<!-- Tampilan 2: Data Google Sheets -->
+<section class="card">
+<h2 class="judul">📄 Data Hasil Pengisian (Google Sheets)</h2>
+<div class="tabel-wrap">
+<table id="tabelData">
+<thead></thead>
+<tbody><tr><td>Memuat data…</td></tr></tbody>
+</table>
+</div>
+<p class="status" id="status"></p>
+</section>
+</main>
+
+<footer>© 2026 Audia Agustina Rahman. Dibuat dengan HTML &amp; CSS.</footer>
+
+<script>
+(function(){
+  var SHEET_ID = "1Xte1ij5QahCLG4oYUOmLwzuVCR1SOwUklB0EbxsTAL8";
+  var URL_CSV = "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/gviz/tq?tqx=out:csv";
+  var thead = document.querySelector("#tabelData thead");
+  var tbody = document.querySelector("#tabelData tbody");
+  var status = document.getElementById("status");
+
+  // Pembaca CSV (mendukung tanda kutip dan koma di dalam sel)
+  function parseCSV(t){
+    var hasil = [], sel = "", baris = [], kutip = false, i, c;
+    for(i = 0; i < t.length; i++){
+      c = t[i];
+      if(kutip){
+        if(c === '"' && t[i+1] === '"'){ sel += '"'; i++; }
+        else if(c === '"'){ kutip = false; }
+        else { sel += c; }
+      } else {
+        if(c === '"'){ kutip = true; }
+        else if(c === ","){ baris.push(sel); sel = ""; }
+        else if(c === "\n"){ baris.push(sel); hasil.push(baris); baris = []; sel = ""; }
+        else if(c !== "\r"){ sel += c; }
+      }
+    }
+    if(sel !== "" || baris.length){ baris.push(sel); hasil.push(baris); }
+    return hasil;
+  }
+
+  function tampilkan(d){
+    thead.innerHTML = ""; tbody.innerHTML = "";
+    if(!d.length){ tbody.innerHTML = "<tr><td>Belum ada data.</td></tr>"; return; }
+    var h = document.createElement("tr");
+    d[0].forEach(function(x){ var th = document.createElement("th"); th.textContent = x; h.appendChild(th); });
+    thead.appendChild(h);
+    d.slice(1).forEach(function(r){
+      var tr = document.createElement("tr");
+      d[0].forEach(function(_, i){ var td = document.createElement("td"); td.textContent = r[i] || ""; tr.appendChild(td); });
+      tbody.appendChild(tr);
+    });
+    status.textContent = "Total " + (d.length - 1) + " data responden.";
+  }
+
+  fetch(URL_CSV + "&_=" + Date.now())
+    .then(function(r){ if(!r.ok) throw new Error(); return r.text(); })
+    .then(function(t){ tampilkan(parseCSV(t)); })
+    .catch(function(){
+      tbody.innerHTML = "<tr><td>Data gagal dimuat. Pastikan Share spreadsheet diatur ke \"Anyone with the link\" (Viewer).</td></tr>";
+    });
+})();
+</script>
+</body>
+</html>
