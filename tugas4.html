@@ -39,9 +39,20 @@ ul.daftar li{margin-bottom:6px}
 .btn.sekunder{background:rgba(255,255,255,.1);color:var(--text);border:1px solid rgba(255,255,255,.22)}
 .btn.home{background:rgba(120,130,150,.35);color:var(--text)}
 
-/* Bingkai embed (video, dokumen, dashboard, dll.) */
+/* Bingkai embed (Google Form & Spreadsheet) */
 .frame-wrap{width:100%;height:75vh;min-height:520px;overflow:hidden;border-radius:12px;background:#fff}
 iframe{width:100%;height:100%;border:0}
+
+/* Tampilan Data Spreadsheet di dalam kolom putih */
+.frame-wrap.sheet-wrap{overflow:auto;color:#202124}
+.sheet-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;background:#f8f9fa;border-bottom:1px solid #dadce0;font-size:.92rem;font-weight:600;color:#202124;position:sticky;left:0}
+.sheet-badge{background:#e6f4ea;color:#137333;padding:4px 10px;border-radius:999px;font-size:.8rem;font-weight:600;white-space:nowrap}
+.sheet-table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:850px;background:#fff}
+.sheet-table th,.sheet-table td{padding:10px 12px;text-align:left;border:1px solid #e0e0e0;color:#202124}
+.sheet-table th{background:#f1f3f4;color:#3c4043;font-weight:600;border-color:#dadce0}
+.sheet-table td.row-num,.sheet-table th.row-num{background:#f8f9fa;color:#5f6368;text-align:center;font-weight:600;width:46px}
+.sheet-table tbody tr:hover td{background:#f8fbff}
+.sheet-table tbody tr:hover td.row-num{background:#e8eaed}
 
 footer{text-align:center;padding:22px;color:var(--muted);background:rgba(10,10,25,.75);border-top:2px solid transparent;border-image:linear-gradient(90deg,rgb(50,120,255),rgb(40,255,130),rgb(255,40,80)) 1}
 @media(max-width:600px){nav,nav ul{justify-content:center}h1{font-size:2rem}main{padding:28px 14px}.frame-wrap{height:70vh;min-height:440px}.btn{width:100%;text-align:center}}
@@ -69,33 +80,69 @@ footer{text-align:center;padding:22px;color:var(--muted);background:rgba(10,10,2
 <main>
 <h1>Dokumentasi Tugas 4</h1>
 
-<!-- Deskripsi tugas: ganti teks di bawah sesuai isi Tugas 4 -->
+<!-- Deskripsi tugas -->
 <section class="card">
 <h2 class="judul">📌 Deskripsi Tugas</h2>
-<p>Tuliskan penjelasan singkat tentang Tugas 4 di sini: tujuan, alat yang digunakan, dan hasil yang diperoleh.</p>
+<p>Tugas 4 ini berisi pembuatan kuesioner daring untuk mengukur tingkat <strong>Kepuasan Rencana Usaha Kelompok (RUK) KUB</strong> sekaligus menampilkan hasil tanggapan responden melalui Google Spreadsheet.</p>
 <ul class="daftar">
-<li>Tujuan tugas: ...</li>
-<li>Alat / aplikasi yang digunakan: ...</li>
-<li>Hasil akhir: ...</li>
+<li>Tujuan tugas: Mengumpulkan dan menyajikan data kepuasan anggota terhadap kesesuaian kebutuhan, kejelasan tujuan, kemudahan memahami informasi, dan manfaat RUK KUB.</li>
+<li>Alat / aplikasi yang digunakan: Google Forms, Google Sheets, serta HTML &amp; CSS.</li>
+<li>Hasil akhir: Formulir pengisian online yang terhubung langsung dengan rekap data Spreadsheet.</li>
 </ul>
 </section>
 
-<!-- Tautan navigasi: ganti href="#" dengan tautan asli (Form, dokumen, dashboard, dll.) -->
+<!-- Tautan navigasi -->
 <div class="card nav-card">
 <h2>Tautan Navigasi Tugas 4</h2>
-<p>Buka hasil Tugas 4 secara penuh di tab baru.</p>
+<p>Buka Google Form atau Google Spreadsheet secara penuh di tab baru.</p>
 <div class="tombol">
-<a class="btn" href="#" target="_blank" rel="noopener">🔗 Buka Hasil Tugas 4</a>
-<a class="btn sekunder" href="#" target="_blank" rel="noopener">📄 Buka Dokumen Pendukung</a>
+<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScblG6InSNd2GduYzdW74ClLV_WQBmO785eysdTiIrRUfpa4g/viewform?usp=dialog" target="_blank" rel="noopener">📝 Isi Google Form</a>
+<a class="btn sekunder" href="GANTI_DENGAN_LINK_SPREADSHEET_ANDA" target="_blank" rel="noopener">📊 Buka Data Spreadsheet</a>
 <a class="btn home" href="index.html">🏠 Kembali ke Home</a>
 </div>
 </div>
 
-<!-- Tampilan hasil: ganti src dengan tautan embed (YouTube, Google Docs, Looker Studio, dll.) -->
+<!-- Tampilan 1: Google Form -->
 <section class="card">
-<h2 class="judul">🖥️ Tampilan Hasil Tugas 4</h2>
+<h2 class="judul">📝 Formulir Pengisian Google Form</h2>
+<p>Responden dapat mengisi survei kepuasan RUK KUB secara langsung di bawah ini:</p>
 <div class="frame-wrap">
-<iframe src="about:blank" title="Hasil Tugas 4" allowfullscreen></iframe>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScblG6InSNd2GduYzdW74ClLV_WQBmO785eysdTiIrRUfpa4g/viewform?embedded=true" title="Google Form Kepuasan RUK KUB" allowfullscreen></iframe>
+</div>
+</section>
+
+<!-- Tampilan 2: Data Spreadsheet di dalam kolom putih -->
+<section class="card">
+<h2 class="judul">📊 Tampilan Data Google Spreadsheet</h2>
+<p>Rekap data hasil pengisian Google Form Kepuasan Rencana Usaha Kelompok (RUK) KUB:</p>
+<div class="frame-wrap sheet-wrap">
+<div class="sheet-bar">
+<span>📗 Kepuasan Rencana Usaha Kelompok (RUK) KUB (Jawaban)</span>
+<span class="sheet-badge">8 Responden</span>
+</div>
+<table class="sheet-table">
+<thead>
+<tr>
+<th class="row-num">#</th>
+<th>Timestamp</th>
+<th>Kesesuaian RUK dengan Kebutuhan Anggota</th>
+<th>Kejelasan Tujuan dalam RUK</th>
+<th>Kemudahan Memahami Informasi RUK</th>
+<th>Manfaat RUK Mendukung Usaha Bersama</th>
+<th>Pertanyaan Tanpa Judul</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="row-num">1</td><td>21/11/2026 13:22:30</td><td>cukup puas</td><td>cukup puas</td><td>sangat puas</td><td>sangat puas</td><td>2</td></tr>
+<tr><td class="row-num">2</td><td>21/11/2026 13:24:10</td><td>puas</td><td>sangat tidak puas</td><td>puas</td><td>puas</td><td>1</td></tr>
+<tr><td class="row-num">3</td><td>21/11/2026 13:25:15</td><td>sangat puas</td><td>cukup puas</td><td>sangat puas</td><td>sangat puas</td><td>5</td></tr>
+<tr><td class="row-num">4</td><td>21/11/2026 13:41:07</td><td>puas</td><td>puas</td><td>puas</td><td>cukup puas</td><td>3</td></tr>
+<tr><td class="row-num">5</td><td>21/11/2026 13:45:02</td><td>puas</td><td>puas</td><td>puas</td><td>puas</td><td>1</td></tr>
+<tr><td class="row-num">6</td><td>21/11/2026 16:06:46</td><td>sangat puas</td><td>sangat puas</td><td>sangat puas</td><td>sangat puas</td><td>5</td></tr>
+<tr><td class="row-num">7</td><td>21/11/2026 16:23:44</td><td>puas</td><td>tidak puas</td><td>cukup puas</td><td>puas</td><td>3</td></tr>
+<tr><td class="row-num">8</td><td>21/11/2026 18:08:14</td><td>puas</td><td>puas</td><td>cukup puas</td><td>sangat puas</td><td>5</td></tr>
+</tbody>
+</table>
 </div>
 </section>
 </main>
