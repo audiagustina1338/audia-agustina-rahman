@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beranda | Audia Agustina Rahman</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Onest:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <script>
+    (function () {
+      const FONT_BASE = 16, BASE_W = 1920, COEF = 0.6666;
+      function applyAdaptiveGrid() {
+        const w = window.innerWidth;
+        const reduction = ((BASE_W - w) / BASE_W) * 100 * COEF;
+        const size = FONT_BASE - (FONT_BASE * reduction) / 100;
+        if (size > FONT_BASE) {
+          document.documentElement.style.fontSize = size + "px";
+        } else {
+          document.documentElement.style.removeProperty("font-size");
+        }
+      }
+      applyAdaptiveGrid();
+      window.addEventListener("resize", applyAdaptiveGrid);
+    })();
+  </script>
+
+  <style>
+    :root {
+      --font-display: "Anton", Impact, sans-serif;
+      --font-sans: "Onest", "Segoe UI", Arial, sans-serif;
+
+      --background: #08080a;
+      --foreground: #f3f1ea;
+      --surface: #111114;
+      --muted: #807f78;
+      --line: rgba(243, 241, 234, 0.1);
+      --line-strong: rgba(243, 241, 234, 0.22);
+      --accent: #ff3b1d;
+
+      --gutter: 2.5rem;
+
+      --text-hero: 26rem;
+      --text-mega: 9.5rem;
+      --text-display: 7.5rem;
+      --text-h2: 3.25rem;
+      --text-h3: 1.75rem;
+      --text-body: 1.0625rem;
+      --lh-body: 1.6;
+      --text-eyebrow: 0.8125rem;
+      --lh-eyebrow: 1.2;
+
+      --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-wipe: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button, a {
+      font: inherit;
+      color: inherit;
+    }
+
+    button {
+      background: none;
+      border: none;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    html {
+      font-size: 16px;
+      background: #08080a;
+    }
+    @media (max-width: 1920px) { html { font-size: 0.833333vw; } }
+    @media (max-width: 1440px) { html { font-size: 1.111111vw; } }
+    @media (max-width: 1024px) { html { font-size: 1.5625vw; } }
+    @media (max-width: 640px) {
+      html { font-size: 4.444444vw; }
+      :root { --gutter: 16px; }
+    }
+
+    body {
+      background: #08080a;
+      color: #f3f1ea;
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: #ff3b1d;
+      color: #08080a;
+    }
+
+    /* PRELOADER */
+    .preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      padding: var(--gutter);
+      transform: translateY(0);
+      transition: transform 650ms var(--ease-wipe);
+      will-change: transform;
+    }
+
+    @media (min-width: 640px) {
+      .preloader {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+    }
+
+    .preloader-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -10;
+      background: var(--background);
+    }
+
+    .preloader-brand {
+      font-family: var(--font-display);
+      font-size: var(--text-h3);
+      text-transform: uppercase;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--foreground);
+      transition: opacity 300ms ease-out;
+    }
+
+    .preloader-counter {
+      font-family: var(--font-display);
+      font-size: var(--text-display);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      color: var(--foreground);
+      transition: opacity 300ms ease-out;
+    }
+
+    .preloader-counter .pct {
+      color: var(--accent);
+    }
+
+    .preloader.is-fading .preloader-brand,
+    .preloader.is-fading .preloader-counter {
+      opacity: 0;
+    }
+
+    .preloader.is-wiping {
+      transform: translateY(-100%);
+    }
+
+    .preloader.is-done {
+      pointer-events: none;
+      visibility: hidden;
+    }
+
+    /* HEADER & NAVIGASI */
+    .site-header {
+      position: fixed;
+      inset-inline: 0;
+      top: 0;
+      z-index: 60;
+      pointer-events: none;
+    }
+
+    .site-nav {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem var(--gutter);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .nav-monogram {
+      display: grid;
+      place-items: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 9999px;
+      border: 1px solid var(--line-strong);
+      font-weight: 600;
+      font-size: 0.9375rem;
+      letter-spacing: -0.01em;
+      color: var(--foreground);
+      transition: border-color 300ms ease-out, color 300ms ease-out;
+    }
+
+    .nav-logo:hover .nav-monogram {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .nav-logo-name {
+      display: none;
+      font-size: var(--text-eyebrow);
+      line-height: var(--lh-eyebrow);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+    }
+
+    @media (min-width: 640px) {
+      .nav-logo-name {
+        display: block;
+      }
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 1.4rem;
+    }
+
+    @media (min-width: 1024px) {
+      .nav-links {
+        display: flex;
+      }
+    }
+
+    .nav-link {
+      position: relative;
+      font-size: 0.75rem;
+      line-height: 1.2;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      white-space: nowrap;
+      transition: color 260ms ease-out;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: -0.25rem;
+      left: 0;
+      height: 1px;
+      width: 0;
+      background: var(--accent);
+      transition: width 320ms var(--ease-expo);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--foreground);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-burger {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.375rem;
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      .nav-burger {
+        display: none;
+      }
+    }
+
+    .burger-bar {
+      display: block;
+      height: 0.125rem;
+      width: 1.5rem;
+      background: var(--foreground);
+      transition: transform 320ms var(--ease-expo), opacity 220ms ease-out;
+      transform-origin: center;
+    }
+
+    .nav-burger.is-open .burger-bar:nth-child(1) {
+      transform: translateY(0.5rem) rotate(45deg);
+    }
+    .nav-burger.is-open .burger-bar:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-burger.is-open .burger-bar:nth-child(3) {
+      transform: translateY(-0.5rem) rotate(-45deg);
+    }
+
+    /* MENU MOBILE */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      background: var(--background);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5.5rem var(--gutter) 2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 450ms ease-out;
+    }
+
+    @media (min-width: 1024px) {
+      .mobile-menu {
+        display: none;
+      }
+    }
+
+    .mobile-menu.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-menu-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+      gap: 1.1rem;
+    }
+
+    .mobile-menu-link {
+      display: block;
+      font-family: var(--font-display);
+      font-size: var(--text-h2);
+      text-transform: uppercase;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--foreground);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: transform 420ms ease-out, opacity 420ms ease-out, color 260ms ease-out;
+      transition-delay: 0ms;
+    }
+
+    .mobile-menu.is-open .mobile-menu-link {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: var(--trail-delay, 100ms);
+    }
+
+    .mobile-menu-link.active,
+    .mobile-menu-link:hover {
+      color: var(--accent);
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100svh;
+      overflow: hidden;
+    }
+
+    .hero-top {
+      position: relative;
+      z-index: 30;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 6.5rem var(--gutter) 0;
+    }
+
+    @media (min-width: 640px) {
+      .hero-top {
+        padding-top: 7.5rem;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+    }
+
+    .hero-roles {
+      font-family: var(--font-display);
+      font-size: var(--text-h3);
+      text-transform: uppercase;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--foreground);
+    }
+
+    @media (min-width: 640px) {
+      .hero-roles {
+        font-size: var(--text-h2);
+      }
+    }
+
+    .hero-role-mask {
+      display: block;
+      overflow: hidden;
+    }
+
+    .hero-role-word {
+      display: block;
+      opacity: 0;
+      transform: translateY(110%);
+      transition: transform 760ms var(--ease-expo), opacity 760ms var(--ease-expo);
+      transition-delay: var(--delay, 0ms);
+    }
+
+    .hero-role-word.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-desc {
+      max-width: 26rem;
+      font-size: var(--text-body);
+      line-height: var(--lh-body);
+      color: var(--muted);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: transform 520ms var(--ease-expo), opacity 520ms var(--ease-expo);
+    }
+
+    @media (min-width: 640px) {
+      .hero-desc {
+        text-align: right;
+      }
+    }
+
+    .hero-desc.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* FOTO CUTOUT */
+    .hero-portrait-wrap {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      pointer-events: none;
+      height: 82vh;
+      width: 85vw;
+    }
+
+    @media (min-width: 640px) {
+      .hero-portrait-wrap {
+        height: 86vh;
+        width: 50vw;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-portrait-wrap {
+        width: 38vw;
+      }
+    }
+
+    .liquid-image {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: auto;
+    }
+
+    .liquid-image--bare {
+      background: transparent;
+    }
+
+    .liquid-svg {
+      position: absolute;
+      width: 0;
+      height: 0;
+      pointer-events: none;
+    }
+
+    .liquid-placeholder {
+      position: absolute;
+      left: 50%;
+      top: 46%;
+      transform: translate(-50%, -50%);
+      width: min(19rem, 76vw);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      border: 1px dashed var(--line-strong);
+      background: rgba(17, 17, 20, 0.85);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.6rem;
+      transition: opacity 300ms ease-out;
+    }
+
+    .liquid-placeholder strong {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      color: var(--foreground);
+    }
+
+    .liquid-placeholder span {
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .liquid-placeholder code {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .liquid-image.is-loaded .liquid-placeholder {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .liquid-media {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center bottom;
+      opacity: 0;
+      transform: translateY(36px);
+      transition: transform 900ms var(--ease-expo), opacity 900ms var(--ease-expo);
+    }
+
+    .liquid-image.is-revealed .liquid-media {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* GRADIENT HITAM BAWAH */
+    .hero-gradient {
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      z-index: 22;
+      height: 26vh;
+      pointer-events: none;
+      background: linear-gradient(to bottom, transparent, #08080a);
+    }
+
+    /* NAMA RAKSASA DI BELAKANG FOTO */
+    .hero-name {
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      z-index: 10;
+      transform: translateY(6%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: var(--font-display);
+      font-size: var(--text-mega);
+      line-height: 0.78;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--accent);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    @media (min-width: 640px) {
+      .hero-name {
+        font-size: var(--text-hero);
+      }
+    }
+
+    .hero-name-line {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .hero-char {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: transform 900ms var(--ease-expo), opacity 900ms var(--ease-expo);
+      transition-delay: var(--char-delay, 0ms);
+    }
+
+    .hero-char.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-scroll-cue {
+      position: absolute;
+      bottom: 2.35rem;
+      left: var(--gutter);
+      z-index: 30;
+      display: none;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: var(--text-eyebrow);
+      line-height: var(--lh-eyebrow);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      opacity: 0;
+      transition: opacity 520ms var(--ease-expo);
+    }
+
+    @media (min-width: 768px) {
+      .hero-scroll-cue {
+        display: flex;
+      }
+    }
+
+    .hero-scroll-cue.is-revealed {
+      opacity: 1;
+    }
+
+    .hero-scroll-rule {
+      width: 2.5rem;
+      height: 1px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* TOMBOL LIHAT BIODATA DI BAWAH FOTO */
+    .hero-cta-wrap {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(18px);
+      z-index: 30;
+      opacity: 0;
+      transition: transform 640ms var(--ease-expo), opacity 640ms var(--ease-expo);
+    }
+
+    .hero-cta-wrap.is-revealed {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.9rem 2rem;
+      border-radius: 9999px;
+      background: var(--accent);
+      color: var(--background);
+      font-size: var(--text-eyebrow);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      white-space: nowrap;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+      transition: transform 300ms var(--ease-expo), background 260ms ease-out, box-shadow 300ms ease-out;
+    }
+
+    .hero-cta:hover {
+      background: var(--foreground);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 32px rgba(255, 59, 29, 0.35);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 1.5rem var(--gutter);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+      background: var(--background);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .preloader {
+        display: none !important;
+      }
+      .hero-role-word,
+      .hero-desc,
+      .hero-char,
+      .hero-scroll-cue,
+      .liquid-media,
+      .hero-cta-wrap,
+      .mobile-menu-link {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .hero-cta-wrap {
+        transform: translateX(-50%) !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="preloader" class="preloader" role="status" aria-label="Memuat">
+    <div class="preloader-bg"></div>
+    <p class="preloader-brand">Audia Agustina Rahman</p>
+    <p class="preloader-counter">
+      <span id="preloader-num">0</span><span class="pct">%</span>
+    </p>
+  </div>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Navigasi Utama">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-monogram">AR</span>
+        <span class="nav-logo-name">Audia</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active">Beranda</a></li>
+        <li><a href="biodata.html" class="nav-link">Biodata</a></li>
+        <li><a href="galeri.html" class="nav-link">Galeri</a></li>
+        <li><a href="video.html" class="nav-link">Video</a></li>
+        <li><a href="tugas1.html" class="nav-link">Tugas 1</a></li>
+        <li><a href="tugas2.html" class="nav-link">Tugas 2</a></li>
+        <li><a href="tugas3.html" class="nav-link">Tugas 3</a></li>
+        <li><a href="tugas4.html" class="nav-link">Tugas 4</a></li>
+        <li><a href="tugas-akhir.html" class="nav-link">Tugas Akhir</a></li>
+        <li><a href="data.html" class="nav-link">Data</a></li>
+      </ul>
+
+      <button
+        id="nav-burger"
+        class="nav-burger"
+        type="button"
+        aria-label="Buka menu navigasi"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+    <ul class="mobile-menu-list">
+      <li><a href="index.html" class="mobile-menu-link active" style="--trail-delay:100ms;">Beranda</a></li>
+      <li><a href="biodata.html" class="mobile-menu-link" style="--trail-delay:140ms;">Biodata</a></li>
+      <li><a href="galeri.html" class="mobile-menu-link" style="--trail-delay:180ms;">Galeri</a></li>
+      <li><a href="video.html" class="mobile-menu-link" style="--trail-delay:220ms;">Video</a></li>
+      <li><a href="tugas1.html" class="mobile-menu-link" style="--trail-delay:260ms;">Tugas 1</a></li>
+      <li><a href="tugas2.html" class="mobile-menu-link" style="--trail-delay:300ms;">Tugas 2</a></li>
+      <li><a href="tugas3.html" class="mobile-menu-link" style="--trail-delay:340ms;">Tugas 3</a></li>
+      <li><a href="tugas4.html" class="mobile-menu-link" style="--trail-delay:380ms;">Tugas 4</a></li>
+      <li><a href="tugas-akhir.html" class="mobile-menu-link" style="--trail-delay:420ms;">Tugas Akhir</a></li>
+      <li><a href="data.html" class="mobile-menu-link" style="--trail-delay:460ms;">Data</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <section id="top" class="hero">
+      <div class="hero-top">
+        <h2 class="hero-roles" id="hero-roles">
+          <span class="hero-role-mask"><span class="hero-role-word" style="--delay:0ms;">Halo, Saya</span></span>
+          <span class="hero-role-mask"><span class="hero-role-word" style="--delay:80ms;">Audia</span></span>
+          <span class="hero-role-mask"><span class="hero-role-word" style="--delay:160ms;">Agustina</span></span>
+          <span class="hero-role-mask"><span class="hero-role-word" style="--delay:240ms;">Rahman</span></span>
+        </h2>
+
+        <p class="hero-desc" id="hero-desc">
+          Selamat datang di website saya. Di sini kamu bisa melihat biodata, galeri, video, dan tugas-tugas saya.
+        </p>
+      </div>
+
+      <div class="hero-portrait-wrap">
+        <figure
+          id="hero-figure"
+          class="liquid-image liquid-image--bare"
+          role="img"
+          aria-label="Foto Audia Agustina Rahman"
+          data-liquid="true"
+          data-liquid-scale="30"
+        >
+          <svg class="liquid-svg" aria-hidden="true">
+            <defs>
+              <filter id="liquid-hero" x="-15%" y="-15%" width="130%" height="130%">
+                <feTurbulence
+                  type="fractalNoise"
+                  baseFrequency="0.009"
+                  numOctaves="2"
+                  result="noise"
+                />
+                <feDisplacementMap
+                  in="SourceGraphic"
+                  in2="noise"
+                  scale="1"
+                  xChannelSelector="R"
+                  yChannelSelector="G"
+                />
+              </filter>
+            </defs>
+          </svg>
+
+          <div class="liquid-placeholder">
+            <strong>Tempat Foto</strong>
+            <span>Upload foto kamu ke GitHub di folder yang sama dengan nama <code>foto.png</code></span>
+          </div>
+
+          <img
+            id="hero-photo"
+            class="liquid-media"
+            src="foto.png"
+            alt="Foto Audia Agustina Rahman"
+            style="filter: url(#liquid-hero);"
+          />
+        </figure>
+      </div>
+
+      <div class="hero-gradient" aria-hidden="true"></div>
+
+      <h1 class="hero-name" id="hero-name" aria-label="Audia Rahman">
+        <span class="hero-name-line" data-line="0">Audia</span>
+        <span class="hero-name-line" data-line="1">Rahman</span>
+      </h1>
+
+      <div class="hero-scroll-cue" id="hero-scroll-cue">
+        <span class="hero-scroll-rule" aria-hidden="true"></span>
+        <span>Beranda</span>
+      </div>
+
+      <div class="hero-cta-wrap" id="hero-cta-wrap">
+        <a class="hero-cta" href="biodata.html">Lihat Biodata ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Audia Agustina Rahman. Dibuat dengan HTML &amp; CSS.</footer>
+
+  <script>
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const heroNameLines = document.querySelectorAll(".hero-name-line");
+    const heroCharEls = [];
+
+    heroNameLines.forEach((lineEl, lineIdx) => {
+      const text = lineEl.textContent.trim();
+      lineEl.textContent = "";
+      [...text].forEach((ch, charIdx) => {
+        const span = document.createElement("span");
+        span.className = "hero-char";
+        span.textContent = ch === " " ? "\u00A0" : ch;
+        const delay = lineIdx * 240 + charIdx * 52;
+        span.style.setProperty("--char-delay", delay + "ms");
+        lineEl.appendChild(span);
+        heroCharEls.push(span);
+      });
+    });
+
+    function triggerHeroReveal() {
+      heroCharEls.forEach((el) => el.classList.add("is-revealed"));
+
+      const figure = document.getElementById("hero-figure");
+      if (figure) figure.classList.add("is-revealed");
+
+      setTimeout(() => {
+        document.querySelectorAll(".hero-role-word").forEach((el) => {
+          el.classList.add("is-revealed");
+        });
+      }, 180);
+
+      setTimeout(() => {
+        const desc = document.getElementById("hero-desc");
+        if (desc) desc.classList.add("is-revealed");
+      }, 360);
+
+      setTimeout(() => {
+        const cta = document.getElementById("hero-cta-wrap");
+        const cue = document.getElementById("hero-scroll-cue");
+        if (cta) cta.classList.add("is-revealed");
+        if (cue) cue.classList.add("is-revealed");
+      }, 650);
+    }
+
+    const preloader = document.getElementById("preloader");
+    const preloaderNum = document.getElementById("preloader-num");
+
+    if (prefersReducedMotion) {
+      preloader?.classList.add("is-done");
+      triggerHeroReveal();
+    } else {
+      const countDuration = 1600;
+      const startTime = performance.now();
+
+      function tickCounter(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / countDuration, 1);
+        if (preloaderNum) preloaderNum.textContent = String(Math.round(progress * 100));
+
+        if (progress < 1) {
+          requestAnimationFrame(tickCounter);
+        } else {
+          preloader.classList.add("is-fading");
+
+          setTimeout(() => {
+            preloader.classList.add("is-wiping");
+            triggerHeroReveal();
+
+            setTimeout(() => {
+              preloader.classList.add("is-done");
+              preloader.setAttribute("aria-hidden", "true");
+            }, 650);
+          }, 400);
+        }
+      }
+
+      requestAnimationFrame(tickCounter);
+    }
+
+    const burgerBtn = document.getElementById("nav-burger");
+    const mobileMenu = document.getElementById("mobile-menu");
+    burgerBtn?.addEventListener("click", () => {
+      const open = !mobileMenu.classList.contains("is-open");
+      burgerBtn.classList.toggle("is-open", open);
+      mobileMenu.classList.toggle("is-open", open);
+      burgerBtn.setAttribute("aria-expanded", String(open));
+      mobileMenu.setAttribute("aria-hidden", String(!open));
+    });
+
+    document.querySelectorAll("[data-liquid='true']").forEach((figure) => {
+      const img = figure.querySelector(".liquid-media");
+      const turb = figure.querySelector("feTurbulence");
+      const disp = figure.querySelector("feDisplacementMap");
+
+      if (img) {
+        const candidates = ["foto.png", "foto.jpg", "foto.jpeg"];
+        let candidateIdx = 0;
+
+        const markLoaded = () => figure.classList.add("is-loaded");
+        const tryNextOrHide = () => {
+          candidateIdx++;
+          if (candidateIdx < candidates.length) {
+            img.src = candidates[candidateIdx];
+          } else {
+            img.style.display = "none";
+          }
+        };
+
+        img.addEventListener("load", markLoaded);
+        img.addEventListener("error", tryNextOrHide);
+
+        if (img.complete) {
+          if (img.naturalWidth > 0) {
+            markLoaded();
+          } else {
+            tryNextOrHide();
+          }
+        }
+      }
+
+      if (!turb || !disp || prefersReducedMotion) return;
+
+      const hoverTargetScale = Number(figure.getAttribute("data-liquid-scale") || "30");
+      const restScale = 1;
+      const restFreq = 0.009;
+      const hoverFreq = 0.022;
+      const TENSION = 140;
+      const FRICTION = 13;
+
+      let curScale = restScale, velScale = 0, targetScale = restScale;
+      let curFreq = restFreq, velFreq = 0, targetFreq = restFreq;
+      let rafId = null, lastTime = null;
+
+      function stepSpring(now) {
+        if (lastTime === null) lastTime = now;
+        const dt = Math.min((now - lastTime) / 1000, 0.032);
+        lastTime = now;
+
+        const forceScale = -TENSION * (curScale - targetScale) - FRICTION * velScale;
+        velScale += forceScale * dt;
+        curScale += velScale * dt;
+
+        const forceFreq = -TENSION * (curFreq - targetFreq) - FRICTION * velFreq;
+        velFreq += forceFreq * dt;
+        curFreq += velFreq * dt;
+
+        disp.setAttribute("scale", Math.max(0, curScale).toFixed(3));
+        turb.setAttribute("baseFrequency", Math.max(0.001, curFreq).toFixed(5));
+
+        const settled =
+          Math.abs(curScale - targetScale) < 0.02 &&
+          Math.abs(velScale) < 0.02 &&
+          Math.abs(curFreq - targetFreq) < 0.0001 &&
+          Math.abs(velFreq) < 0.0001;
+
+        if (!settled) {
+          rafId = requestAnimationFrame(stepSpring);
+        } else {
+          disp.setAttribute("scale", String(targetScale));
+          turb.setAttribute("baseFrequency", String(targetFreq));
+          rafId = null;
+          lastTime = null;
+        }
+      }
+
+      function animateTo(newScale, newFreq) {
+        if (window.innerWidth <= 768) return;
+        targetScale = newScale;
+        targetFreq = newFreq;
+        if (rafId === null) {
+          lastTime = null;
+          rafId = requestAnimationFrame(stepSpring);
+        }
+      }
+
+      figure.addEventListener("mouseenter", () => animateTo(hoverTargetScale, hoverFreq));
+      figure.addEventListener("mouseleave", () => animateTo(restScale, restFreq));
+    });
+  </script>
+</body>
+</html>
