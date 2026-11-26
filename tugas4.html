@@ -380,70 +380,6 @@
       transform: translateY(-2px);
     }
 
-    /* KPI Grid */
-    .kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-      margin-bottom: 26px;
-    }
-
-    .kpi-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 20px;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 14px;
-      transition: var(--transition);
-    }
-
-    .kpi-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-      border-color: rgba(13, 148, 136, 0.35);
-    }
-
-    .kpi-label {
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-
-    .kpi-value {
-      font-size: 24px;
-      font-weight: 800;
-      color: var(--navy);
-      font-variant-numeric: tabular-nums;
-      line-height: 1.2;
-    }
-
-    .kpi-sub {
-      font-size: 12px;
-      color: var(--primary-dark);
-      margin-top: 6px;
-      font-weight: 600;
-    }
-
-    .kpi-icon {
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      font-size: 18px;
-      flex-shrink: 0;
-    }
-
-    .icon-teal { background: #ccfbf1; color: #0f766e; }
-    .icon-blue { background: #e0f2fe; color: #0369a1; }
-    .icon-amber { background: #fef3c7; color: #b45309; }
-    .icon-emerald { background: #d1fae5; color: #047857; }
-
     /* Section Cards */
     .section {
       background: var(--surface);
@@ -514,207 +450,6 @@
       height: 680px;
     }
 
-    /* Tabs */
-    .tabs {
-      display: inline-flex;
-      background: #f1f5f9;
-      padding: 5px;
-      border-radius: 12px;
-      gap: 4px;
-    }
-
-    .tab-btn {
-      border: none;
-      background: transparent;
-      padding: 9px 16px;
-      border-radius: 9px;
-      font-family: inherit;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--muted);
-      cursor: pointer;
-      transition: var(--transition);
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-    }
-
-    .tab-btn.active {
-      background: #fff;
-      color: var(--navy);
-      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
-    }
-
-    .tab-panel {
-      display: none;
-    }
-
-    .tab-panel.active {
-      display: block;
-    }
-
-    /* Filter Bar */
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .search-box {
-      flex: 1;
-      min-width: 220px;
-      position: relative;
-    }
-
-    .search-box i {
-      position: absolute;
-      left: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .input-control {
-      width: 100%;
-      padding: 10px 14px 10px 38px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      font-family: inherit;
-      font-size: 13.5px;
-      color: var(--text);
-      background: var(--surface-soft);
-      outline: none;
-      transition: var(--transition);
-    }
-
-    .select-control {
-      padding: 10px 14px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      font-family: inherit;
-      font-size: 13.5px;
-      color: var(--text);
-      background: var(--surface-soft);
-      outline: none;
-      cursor: pointer;
-    }
-
-    .input-control:focus,
-    .select-control:focus {
-      border-color: var(--primary);
-      background: #fff;
-      box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.12);
-    }
-
-    /* Data Table */
-    .table-wrap {
-      overflow-x: auto;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-      text-align: left;
-      white-space: nowrap;
-    }
-
-    thead {
-      background: #f1f5f9;
-    }
-
-    th {
-      padding: 13px 14px;
-      font-weight: 700;
-      color: var(--navy);
-      border-bottom: 1px solid var(--line);
-      font-size: 11.5px;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-    }
-
-    td {
-      padding: 12px 14px;
-      border-bottom: 1px solid #f1f5f9;
-      color: #334155;
-      font-variant-numeric: tabular-nums;
-    }
-
-    tbody tr:hover {
-      background: #f8fafc;
-    }
-
-    tbody tr:last-child td {
-      border-bottom: none;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 11.5px;
-      font-weight: 600;
-    }
-
-    .pill-actual { background: #ccfbf1; color: #0f766e; }
-    .pill-sample { background: #f1f5f9; color: #64748b; }
-    .pill-sp { background: #d1fae5; color: #065f46; }
-    .pill-p { background: #e0f2fe; color: #0369a1; }
-    .pill-cp { background: #fef3c7; color: #92400e; }
-    .pill-tp { background: #fee2e2; color: #b91c1c; }
-
-    .table-meta {
-      margin-top: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 12.5px;
-      color: var(--muted);
-    }
-
-    /* Setup Placeholder for Spreadsheet Links */
-    .sheet-setup {
-      padding: 46px 24px;
-      text-align: center;
-      background: var(--surface-soft);
-    }
-
-    .sheet-setup i {
-      font-size: 38px;
-      color: var(--primary);
-      margin-bottom: 12px;
-    }
-
-    .sheet-setup h3 {
-      font-size: 17px;
-      margin-bottom: 6px;
-      color: var(--navy);
-    }
-
-    .sheet-setup p {
-      font-size: 13.5px;
-      color: var(--muted);
-      max-width: 560px;
-      margin: 0 auto 18px;
-    }
-
-    .sheet-input-row {
-      display: flex;
-      max-width: 580px;
-      margin: 0 auto;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
     .footer {
       text-align: center;
       font-size: 13px;
@@ -729,12 +464,6 @@
       background: rgba(15, 23, 42, 0.45);
       z-index: 90;
       backdrop-filter: blur(2px);
-    }
-
-    @media (max-width: 1100px) {
-      .kpi-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
     }
 
     @media (max-width: 860px) {
@@ -768,10 +497,6 @@
 
       .hero h2 {
         font-size: 22px;
-      }
-
-      .kpi-grid {
-        grid-template-columns: 1fr;
       }
 
       iframe,
@@ -862,7 +587,7 @@
         </a>
       </header>
 
-      <!-- Hero & KPI -->
+      <!-- Hero Banner -->
       <section id="beranda" style="scroll-margin-top: 100px;">
         <div class="hero">
           <div class="hero-badge">
@@ -887,52 +612,6 @@
             <a href="#dashboard" class="btn btn-glass">
               <i class="fas fa-chart-line"></i> Looker Studio
             </a>
-          </div>
-        </div>
-
-        <div class="kpi-grid">
-          <div class="kpi-card">
-            <div>
-              <div class="kpi-label">Data Buku Kegiatan</div>
-              <div class="kpi-value" id="kpiTotalKelompok">0</div>
-              <div class="kpi-sub" id="kpiKelompokSub">Termasuk contoh pengisian</div>
-            </div>
-            <div class="kpi-icon icon-teal">
-              <i class="fas fa-book-open"></i>
-            </div>
-          </div>
-
-          <div class="kpi-card">
-            <div>
-              <div class="kpi-label">Anggota KUB (Aktual)</div>
-              <div class="kpi-value">20 Orang</div>
-              <div class="kpi-sub">KUB Perikanan Jaya Indah</div>
-            </div>
-            <div class="kpi-icon icon-blue">
-              <i class="fas fa-users"></i>
-            </div>
-          </div>
-
-          <div class="kpi-card">
-            <div>
-              <div class="kpi-label">Responden Kepuasan</div>
-              <div class="kpi-value" id="kpiTotalKepuasan">0</div>
-              <div class="kpi-sub">Evaluasi RUK KUB</div>
-            </div>
-            <div class="kpi-icon icon-amber">
-              <i class="fas fa-clipboard-check"></i>
-            </div>
-          </div>
-
-          <div class="kpi-card">
-            <div>
-              <div class="kpi-label">Rata-rata Skor Penilaian</div>
-              <div class="kpi-value" id="kpiRataSkor">0 / 5</div>
-              <div class="kpi-sub" id="kpiPositif">Tingkat kepuasan positif</div>
-            </div>
-            <div class="kpi-icon icon-emerald">
-              <i class="fas fa-star"></i>
-            </div>
           </div>
         </div>
       </section>
@@ -968,105 +647,34 @@
         </div>
       </section>
 
-      <!-- 2. Data Kelompok & Spreadsheet Kegiatan -->
+      <!-- 2. Data Buku Rencana Kegiatan Kelompok (Google Spreadsheet) -->
       <section class="section" id="tabel-data">
         <div class="section-header">
           <div class="section-title-wrap">
             <div class="section-badge"><i class="fas fa-table"></i></div>
             <div>
               <h2>Data Buku Rencana Kegiatan Kelompok</h2>
-              <p>Rekap data kelompok terdaftar beserta integrasi ke Google Spreadsheet.</p>
+              <p>Data kelompok terdaftar langsung dari Google Spreadsheet (terhubung real-time dengan formulir).</p>
             </div>
           </div>
-
-          <div class="tabs" data-tab-group="kegiatan">
-            <button class="tab-btn active" data-target="kegiatan-tabel">
-              <i class="fas fa-list-check"></i> Tabel Data
-            </button>
-            <button class="tab-btn" data-target="kegiatan-sheet">
-              <i class="fas fa-file-excel"></i> Google Spreadsheet
-            </button>
-          </div>
+          <a
+            href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSUNpof9M6a6W0llqOsYKLcJZR7NCmTbESmkUJWK-nQ5D--QP4c6VRsOoBiBNxzY_1-nQVSW5MzeXjB/pubhtml"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-outline"
+          >
+            <i class="fas fa-up-right-from-square"></i> Buka Spreadsheet di Tab Baru
+          </a>
         </div>
 
-        <!-- Tab Tabel Kegiatan -->
-        <div class="tab-panel active" id="kegiatan-tabel">
-          <div class="filter-bar">
-            <div class="search-box">
-              <i class="fas fa-search"></i>
-              <input
-                type="text"
-                id="searchKelompok"
-                class="input-control"
-                placeholder="Cari nama kelompok, kabupaten, ketua, atau nama bank..."
-              />
-            </div>
-            <select id="filterStatusData" class="select-control">
-              <option value="">Semua Baris</option>
-              <option value="aktual">Data Aktual</option>
-              <option value="contoh">Contoh Pengisian</option>
-            </select>
-          </div>
-
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Status</th>
-                  <th>Timestamp</th>
-                  <th>Nama Kelompok</th>
-                  <th>Desa / Kecamatan</th>
-                  <th>Kabupaten</th>
-                  <th>Tgl Pendirian</th>
-                  <th>Ketua</th>
-                  <th>Sekretaris</th>
-                  <th>Bendahara</th>
-                  <th>Anggota</th>
-                  <th>Kelas</th>
-                  <th>Jenis Usaha</th>
-                  <th>Nama Bank</th>
-                </tr>
-              </thead>
-              <tbody id="kelompokBody"></tbody>
-            </table>
-          </div>
-          <div class="table-meta">
-            <span id="kelompokCount">Menampilkan 0 data</span>
-            <span>Sumber: Formulir tanpa judul (Jawaban)</span>
-          </div>
-        </div>
-
-        <!-- Tab Embed Spreadsheet Kegiatan -->
-        <div class="tab-panel" id="kegiatan-sheet">
-          <div class="frame-wrapper">
-            <div class="sheet-setup" id="kegiatanPlaceholder">
-              <i class="fas fa-table-cells"></i>
-              <h3>Link Google Spreadsheet Buku Kegiatan Belum Dipasang</h3>
-              <p>
-                Di Google Sheets, pilih <strong>File &rarr; Bagikan &rarr; Publikasikan ke web &rarr; Sematkan</strong>,
-                lalu tempel URL-nya di bawah ini atau isi variabel <code>SPREADSHEET_KEGIATAN_URL</code> di kode HTML.
-              </p>
-              <div class="sheet-input-row">
-                <input
-                  type="url"
-                  id="kegiatanUrlInput"
-                  class="input-control"
-                  style="padding-left: 14px; flex: 1; min-width: 260px;"
-                  placeholder="https://docs.google.com/spreadsheets/d/.../pubhtml?widget=true&headers=false"
-                />
-                <button class="btn btn-primary" id="loadKegiatanBtn">
-                  <i class="fas fa-play"></i> Muat Spreadsheet
-                </button>
-              </div>
-            </div>
-            <iframe
-              id="kegiatanIframe"
-              src=""
-              loading="lazy"
-              style="display: none;"
-              title="Spreadsheet Buku Rencana Kegiatan Kelompok"
-            ></iframe>
-          </div>
+        <div class="frame-wrapper">
+          <iframe
+            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSUNpof9M6a6W0llqOsYKLcJZR7NCmTbESmkUJWK-nQ5D--QP4c6VRsOoBiBNxzY_1-nQVSW5MzeXjB/pubhtml?widget=true&amp;headers=false"
+            loading="lazy"
+            title="Spreadsheet Data Buku Rencana Kegiatan Kelompok"
+          >
+            Memuat Google Spreadsheet…
+          </iframe>
         </div>
       </section>
 
@@ -1101,86 +709,38 @@
         </div>
       </section>
 
-      <!-- 4. Data Kepuasan & Spreadsheet Kepuasan -->
+      <!-- 4. Data Hasil Kepuasan RUK KUB (Google Spreadsheet) -->
       <section class="section" id="data-kepuasan">
         <div class="section-header">
           <div class="section-title-wrap">
             <div class="section-badge"><i class="fas fa-square-poll-vertical"></i></div>
             <div>
               <h2>Data Hasil Kepuasan RUK KUB</h2>
-              <p>Rekapitulasi jawaban responden survei kepuasan dan embed Google Spreadsheet kepuasan.</p>
+              <p>Rekapitulasi jawaban responden survei kepuasan langsung dari Google Spreadsheet.</p>
             </div>
           </div>
-
-          <div class="tabs" data-tab-group="kepuasan">
-            <button class="tab-btn active" data-target="kepuasan-tabel">
-              <i class="fas fa-list-check"></i> Rekap Jawaban
-            </button>
-            <button class="tab-btn" data-target="kepuasan-sheet">
-              <i class="fas fa-file-excel"></i> Google Spreadsheet
-            </button>
-          </div>
+          <a
+            href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSTtcTunPt1J0UIWJ_Q95c2Utr-WgwVzgTHgR-iYCDY_dNxCJOw23q3mJbtJR8-0IYMNw5yEUrs-fb9/pubhtml"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-outline"
+          >
+            <i class="fas fa-up-right-from-square"></i> Buka Spreadsheet di Tab Baru
+          </a>
         </div>
 
-        <!-- Tab Rekap Kepuasan -->
-        <div class="tab-panel active" id="kepuasan-tabel">
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>No</th>
-                  <th>Timestamp</th>
-                  <th>Kesesuaian Kebutuhan</th>
-                  <th>Kejelasan Tujuan</th>
-                  <th>Kemudahan Informasi</th>
-                  <th>Manfaat Usaha</th>
-                  <th>Skor</th>
-                </tr>
-              </thead>
-              <tbody id="kepuasanBody"></tbody>
-            </table>
-          </div>
-          <div class="table-meta">
-            <span id="kepuasanCount">Menampilkan 0 data</span>
-            <span>Sumber: Kepuaasan Rencana Usaha Kelompok (RUK) KUB (Jawaban)</span>
-          </div>
-        </div>
-
-        <!-- Tab Embed Spreadsheet Kepuasan -->
-        <div class="tab-panel" id="kepuasan-sheet">
-          <div class="frame-wrapper">
-            <div class="sheet-setup" id="kepuasanPlaceholder">
-              <i class="fas fa-table-cells"></i>
-              <h3>Link Google Spreadsheet Kepuasan Belum Dipasang</h3>
-              <p>
-                Di Google Sheets data kepuasan, pilih <strong>File &rarr; Bagikan &rarr; Publikasikan ke web &rarr; Sematkan</strong>,
-                lalu tempel URL-nya di bawah atau isi variabel <code>SPREADSHEET_KEPUASAN_URL</code> di kode HTML.
-              </p>
-              <div class="sheet-input-row">
-                <input
-                  type="url"
-                  id="kepuasanUrlInput"
-                  class="input-control"
-                  style="padding-left: 14px; flex: 1; min-width: 260px;"
-                  placeholder="https://docs.google.com/spreadsheets/d/.../pubhtml?widget=true&headers=false"
-                />
-                <button class="btn btn-primary" id="loadKepuasanBtn">
-                  <i class="fas fa-play"></i> Muat Spreadsheet
-                </button>
-              </div>
-            </div>
-            <iframe
-              id="kepuasanIframe"
-              src=""
-              loading="lazy"
-              style="display: none;"
-              title="Spreadsheet Kepuasan RUK KUB"
-            ></iframe>
-          </div>
+        <div class="frame-wrapper">
+          <iframe
+            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSTtcTunPt1J0UIWJ_Q95c2Utr-WgwVzgTHgR-iYCDY_dNxCJOw23q3mJbtJR8-0IYMNw5yEUrs-fb9/pubhtml?widget=true&amp;headers=false"
+            loading="lazy"
+            title="Spreadsheet Data Hasil Kepuasan RUK KUB"
+          >
+            Memuat Google Spreadsheet Kepuasan…
+          </iframe>
         </div>
       </section>
 
-      <!-- 5. Looker Studio Dashboard (LINK TERBARU) -->
+      <!-- 5. Looker Studio Dashboard -->
       <section class="section" id="dashboard">
         <div class="section-header">
           <div class="section-title-wrap">
@@ -1221,206 +781,6 @@
   </div>
 
   <script>
-    // =========================================================================
-    // KONFIGURASI LINK GOOGLE SPREADSHEET (TEMPEL URL EMBED DI SINI)
-    // =========================================================================
-    const SPREADSHEET_KEGIATAN_URL = "";
-    const SPREADSHEET_KEPUASAN_URL = "";
-
-    // 1. Data Buku Rencana Kegiatan Kelompok
-    const kegiatanData = [
-      {
-        status: "contoh",
-        timestamp: "23/11/2026 22:15:11",
-        namaKelompok: "Contoh: KUB harapan kita bersama",
-        desaKec: "kelurahan sungai jingah / banjarmasin utara",
-        kabupaten: "kota banjarmasin",
-        tglPendirian: "12 januari 2007",
-        ketua: "Apriyanor",
-        sekretaris: "siti aminah",
-        bendahara: "Anggita purwati",
-        anggota: "12 orang",
-        kelas: "pemula",
-        usaha: "penangkapan ikan perairan umum",
-        bank: "bank bri"
-      },
-      {
-        status: "aktual",
-        timestamp: "24/11/2026 15:07:36",
-        namaKelompok: "KUB Perikanan jaya indah",
-        desaKec: "Desa baruh jaya / Daha selatan",
-        kabupaten: "Hulu Sungai Selatan",
-        tglPendirian: "12/02/2011",
-        ketua: "Hermanto",
-        sekretaris: "masriah",
-        bendahara: "Syahran",
-        anggota: "20 orang",
-        kelas: "Pemula",
-        usaha: "Perikanan tangkap perairan darat",
-        bank: "BANK KALSEL"
-      }
-    ];
-
-    // 2. Data Survei Kepuasan RUK KUB
-    const kepuasanData = [
-      { no: 1, timestamp: "21/11/2026 13:22:30", q1: "cukup puas", q2: "cukup puas", q3: "sangat puas", q4: "sangat puas", skor: 2 },
-      { no: 2, timestamp: "21/11/2026 13:24:10", q1: "puas", q2: "sangat tidak puas", q3: "puas", q4: "puas", skor: 1 },
-      { no: 3, timestamp: "21/11/2026 13:25:15", q1: "sangat puas", q2: "cukup puas", q3: "sangat puas", q4: "sangat puas", skor: 5 },
-      { no: 4, timestamp: "21/11/2026 13:41:07", q1: "puas", q2: "puas", q3: "puas", q4: "cukup puas", skor: 3 },
-      { no: 5, timestamp: "21/11/2026 13:45:02", q1: "puas", q2: "puas", q3: "puas", q4: "puas", skor: 1 },
-      { no: 6, timestamp: "21/11/2026 16:06:46", q1: "sangat puas", q2: "sangat puas", q3: "sangat puas", q4: "sangat puas", skor: 5 },
-      { no: 7, timestamp: "21/11/2026 16:23:44", q1: "puas", q2: "tidak puas", q3: "cukup puas", q4: "puas", skor: 3 },
-      { no: 8, timestamp: "21/11/2026 18:08:14", q1: "puas", q2: "puas", q3: "cukup puas", q4: "sangat puas", skor: 5 }
-    ];
-
-    // Update KPI Cards
-    const aktualCount = kegiatanData.filter((d) => d.status === "aktual").length;
-    const avgSkor = (
-      kepuasanData.reduce((sum, item) => sum + item.skor, 0) / kepuasanData.length
-    ).toFixed(1);
-    const totalAspek = kepuasanData.length * 4;
-    const aspekPositif = kepuasanData.reduce((acc, row) => {
-      return acc + [row.q1, row.q2, row.q3, row.q4].filter((v) => v === "puas" || v === "sangat puas").length;
-    }, 0);
-    const persenPositif = Math.round((aspekPositif / totalAspek) * 100);
-
-    document.getElementById("kpiTotalKelompok").textContent = `${kegiatanData.length} Entri`;
-    document.getElementById("kpiKelompokSub").textContent = `${aktualCount} Data Aktual & 1 Contoh`;
-    document.getElementById("kpiTotalKepuasan").textContent = `${kepuasanData.length} Orang`;
-    document.getElementById("kpiRataSkor").textContent = `${avgSkor} / 5`;
-    document.getElementById("kpiPositif").textContent = `${persenPositif}% jawaban Puas & Sangat Puas`;
-
-    // Render Tabel Buku Kegiatan
-    const searchKelompok = document.getElementById("searchKelompok");
-    const filterStatusData = document.getElementById("filterStatusData");
-    const kelompokBody = document.getElementById("kelompokBody");
-    const kelompokCount = document.getElementById("kelompokCount");
-
-    function renderKelompok() {
-      const q = searchKelompok.value.toLowerCase().trim();
-      const status = filterStatusData.value;
-
-      const filtered = kegiatanData.filter((r) => {
-        const matchQ =
-          r.namaKelompok.toLowerCase().includes(q) ||
-          r.kabupaten.toLowerCase().includes(q) ||
-          r.ketua.toLowerCase().includes(q) ||
-          r.bank.toLowerCase().includes(q) ||
-          r.usaha.toLowerCase().includes(q);
-        const matchStatus = !status || r.status === status;
-        return matchQ && matchStatus;
-      });
-
-      if (filtered.length === 0) {
-        kelompokBody.innerHTML = `
-          <tr>
-            <td colspan="13" style="text-align:center; padding: 28px; color: #64748b;">
-              Tidak ada data kelompok yang cocok.
-            </td>
-          </tr>`;
-      } else {
-        kelompokBody.innerHTML = filtered
-          .map(
-            (r) => `
-          <tr>
-            <td>
-              <span class="pill ${r.status === "aktual" ? "pill-actual" : "pill-sample"}">
-                ${r.status === "aktual" ? "Data Aktual" : "Contoh"}
-              </span>
-            </td>
-            <td>${r.timestamp}</td>
-            <td><strong>${r.namaKelompok}</strong></td>
-            <td>${r.desaKec}</td>
-            <td>${r.kabupaten}</td>
-            <td>${r.tglPendirian}</td>
-            <td>${r.ketua}</td>
-            <td>${r.sekretaris}</td>
-            <td>${r.bendahara}</td>
-            <td>${r.anggota}</td>
-            <td>${r.kelas}</td>
-            <td>${r.usaha}</td>
-            <td><strong>${r.bank}</strong></td>
-          </tr>`
-          )
-          .join("");
-      }
-      kelompokCount.textContent = `Menampilkan ${filtered.length} dari ${kegiatanData.length} entri`;
-    }
-
-    searchKelompok.addEventListener("input", renderKelompok);
-    filterStatusData.addEventListener("change", renderKelompok);
-    renderKelompok();
-
-    // Render Tabel Kepuasan
-    function badgeKepuasan(val) {
-      const v = val.toLowerCase();
-      let cls = "pill-cp";
-      if (v === "sangat puas") cls = "pill-sp";
-      else if (v === "puas") cls = "pill-p";
-      else if (v.includes("tidak puas")) cls = "pill-tp";
-      return `<span class="pill ${cls}">${val}</span>`;
-    }
-
-    const kepuasanBody = document.getElementById("kepuasanBody");
-    kepuasanBody.innerHTML = kepuasanData
-      .map(
-        (r) => `
-      <tr>
-        <td>${r.no}</td>
-        <td>${r.timestamp}</td>
-        <td>${badgeKepuasan(r.q1)}</td>
-        <td>${badgeKepuasan(r.q2)}</td>
-        <td>${badgeKepuasan(r.q3)}</td>
-        <td>${badgeKepuasan(r.q4)}</td>
-        <td><strong>${r.skor}</strong></td>
-      </tr>`
-      )
-      .join("");
-    document.getElementById("kepuasanCount").textContent = `Menampilkan ${kepuasanData.length} respons survei`;
-
-    // Tab Switcher
-    document.querySelectorAll(".tabs").forEach((tabGroup) => {
-      const buttons = tabGroup.querySelectorAll(".tab-btn");
-      buttons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          buttons.forEach((b) => {
-            b.classList.remove("active");
-            document.getElementById(b.dataset.target).classList.remove("active");
-          });
-          btn.classList.add("active");
-          document.getElementById(btn.dataset.target).classList.add("active");
-        });
-      });
-    });
-
-    // Handler Embed Google Spreadsheet
-    function setupSheetEmbed(defaultUrl, iframeId, placeholderId, inputId, btnId) {
-      const iframe = document.getElementById(iframeId);
-      const placeholder = document.getElementById(placeholderId);
-      const input = document.getElementById(inputId);
-      const btn = document.getElementById(btnId);
-
-      function loadUrl(url) {
-        if (!url) return;
-        iframe.src = url;
-        iframe.style.display = "block";
-        placeholder.style.display = "none";
-      }
-
-      if (defaultUrl.trim() !== "") {
-        loadUrl(defaultUrl.trim());
-      }
-
-      btn.addEventListener("click", () => {
-        const val = input.value.trim();
-        if (val) loadUrl(val);
-        else alert("Silakan masukkan URL embed Google Spreadsheet terlebih dahulu.");
-      });
-    }
-
-    setupSheetEmbed(SPREADSHEET_KEGIATAN_URL, "kegiatanIframe", "kegiatanPlaceholder", "kegiatanUrlInput", "loadKegiatanBtn");
-    setupSheetEmbed(SPREADSHEET_KEPUASAN_URL, "kepuasanIframe", "kepuasanPlaceholder", "kepuasanUrlInput", "loadKepuasanBtn");
-
     // Sidebar & Scroll-Spy
     const sidebar = document.getElementById("sidebar");
     const toggleSidebar = document.getElementById("toggleSidebar");
